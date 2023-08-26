@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+/* css reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* variables */
+:root:has(#theme2:checked) {
+  --color-bg-100: #eee;
+--color-bg-200: #e6e6e6;
+--color-bg-300: #e5e4e1;
+--color-bg-500: #d2cdcd;
+--color-btn-shadow-no: #a79e91;
+--color-accent-1: #378187;
+--color-accent-1--active: #62b5bc;
+--color-btn-shadow-fc: #1b6066;
+--color-accent-2: #c85402;
+--color-accent-2--active: #ff8a38;
+--color-btn-shadow-res: #873901;
+--txt--main: #36362C;
+--txt--btns-no: #36362C;
+--txt--btns-fc: #FFF;
+--txt--btns-res: #FFF;
+}
+
+:root:has(#theme1:checked) {
+  --color-bg-100: #181F33;
+  --color-bg-200: #3A4663;
+  --color-bg-300: #EAE3DC;
+  --color-bg-500: #242D44;
+  --color-btn-shadow-no: #B3A497;
+  --color-accent-1: #647198;
+  --color-accent-1--active: #A2B2E1;
+  --color-btn-shadow-fc: #414E73;
+  --color-accent-2: #D03F2F;
+  --color-accent-2--active: #F96B5B;
+  --color-btn-shadow-res: #93261A;
+  --txt--main: #FFF;
+  --txt--btns-no: #434A59;
+  --txt--btns-fc: #FFF;
+  --txt--btns-res: #FFF;
+}
+
+:root:has(#theme3:checked) {
+  --color-bg-100: #1E0936;
+  --color-bg-200: #17062A;
+  --color-bg-300:  #331C4D;
+  --color-bg-500: #1E0936;
+  --color-btn-shadow-no: #881C9E;
+  --color-accent-1: #56077C;
+  --color-accent-1--active: #8631AF;
+  --color-btn-shadow-fc: #BE15F4;
+  --color-accent-2: #00DED0;
+  --color-accent-2--active: #93FFF8;
+  --color-btn-shadow-res: #6CF9F1;
+  --txt--main: #FFE53D;
+  --txt--btns-no: #FFE53D;
+  --txt--btns-fc: #FFF;
+  --txt--btns-res: #1A2327;
+}
+
+/* utility classes */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* main styles */
+body {
+  display: grid;
+  place-items: center;
+  background-color: var(--color-bg-200);
+  height: 100vh;
+  font-family: "League Spartan", sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  color: var(--txt--main);
+}
+
+.logo {
+  font-size: 32px;
+  line-height: normal;
+  letter-spacing: -0.533px;
+  
+}
+
+.switcher__container {
+  display: flex;
+  align-items: flex-end;
+}
+.switcher__toggler {
+  margin-left: 26px;
+}
+.switcher__toggler--button {
+  width: 71px;
+  height: 26px;
+  flex-shrink: 0;
+  background-color: var(--color-bg-500);
+  border-radius: 13px;
+  position: relative;
+}
+.switcher__toggler--dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-accent-2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+.switcher__text {
+  font-size: 12px;
+}
+.switcher__numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.switcher__number {
+  display: inline-block;
+  flex-basis: 33%;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.color-picker > fieldset {
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 6px;
+}
+
+.color-picker input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.color-picker input[type=radio]:checked {
+  background-color: var(--color-accent-2);
+}
+
+.screen {
+  background-color: var(--color-bg-100);
+  border-radius: 10px;
+  padding: 24px;
+  font-size: 40px;
+  text-align: right;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  color: var(--txt--main);
+}
+
+.buttons__container {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  background-color: var(--color-bg-500);
+  padding: 24px;
+  gap: 13px;
+  border-radius: 10px;
+  font-size: 32px;
+  color: var(--txt--btns-no);
+}
+
+.button {
+  background-color: var(--color-bg-300);
+  min-width: 60px;
+  width: 100%;
+  min-height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  box-shadow: 0px -4px 0px 0px var(--color-btn-shadow-no) inset;
+}
+.button:hover {
+  background-color: var(--color-bg-100);
+}
+.button:active {
+  box-shadow: unset;
+  transform: translateY(4px);
+  box-shadow: 0px 4px 8px -4px var(--color-btn-shadow-no) inset;
+}
+.button--function {
+  font-size: 20px;
+  color: var(--txt--btns-fc);
+  background-color: var(--color-accent-1);
+  box-shadow: 0px -4px 0px 0px var(--color-btn-shadow-fc) inset;
+}
+.button--function:hover {
+  background-color: var(--color-accent-1--active);
+}
+.button--function:active {
+  box-shadow: unset;
+  transform: translateY(4px);
+  box-shadow: 0px 4px 8px -4px var(--color-btn-shadow-fc) inset;
+}
+.button--result {
+  font-size: 20px;
+  color: var(--txt--btns-res);
+  background-color: var(--color-accent-2);
+  box-shadow: 0px -4px 0px 0px var(--color-btn-shadow-res) inset;
+}
+.button--result:hover {
+  background-color: var(--color-accent-2--active);
+}
+.button--result:active {
+  box-shadow: unset;
+  transform: translateY(4px);
+  box-shadow: 0px 4px 8px -4px var(--color-btn-shadow-res) inset;
+}
+
+.span2 {
+  grid-column: span 2;
+  width: 100%;
+}
+
+@media (min-width: 1440px) {
+  .app {
+    width: 540px;
+    height: 480px;
+  }
+  .logo {
+    font-size: 32px;
+    letter-spacing: -0.533px;
+  }
+  .buttons__container {
+    padding: 32px;
+    gap: 25px;
+  }
+  .button {
+    font-size: 40px;
+    border-radius: 10px;
+  }
+  .button--function {
+    font-size: 28px;
+    line-height: normal;
+    letter-spacing: -0.467px;
+  }
+  .switcher__text {
+    margin-bottom: 7px;
+  }
+}/*# sourceMappingURL=styles.css.map */

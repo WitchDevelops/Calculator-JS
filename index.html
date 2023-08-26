@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - JS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <p class="logo">calc</p>
+            <div class="switcher__container">
+                <p class="switcher__text">THEME</p>
+                <div class="switcher__toggler">
+                    <div class="switcher__numbers">
+                        <p class="switcher__number">1</p>
+                        <p class="switcher__number">2</p>
+                        <p class="switcher__number">3</p>
+                    </div>
+                    <form class="switcher__toggler--button color-picker" action="">
+                    <fieldset>
+                        <legend class="visually-hidden">pick a color scheme</legend>
+                        <label 
+                            class="visually-hidden" 
+                            for="theme1">
+                            theme 1
+                        </label>
+                        <input     
+                            type="radio" 
+                            name="theme" 
+                            id="theme1"
+                            checked>
+
+                        <label 
+                            class="visually-hidden" 
+                            for="theme2">
+                            theme 2
+                        </label>
+                        <input type="radio" name="theme" id="theme2">
+
+                        <label 
+                            class="visually-hidden"    
+                            for="theme3">
+                            theme 3
+                        </label>
+                        <input 
+                            type="radio" 
+                            name="theme" 
+                            id="theme3">
+                    </fieldset>
+                </form>
+                    <!-- <div class="switcher__toggler--button">
+                        <div class="switcher__toggler--dot"></div>
+                    </div> -->
+                </div>
+                
+            </div>
+        </header>
+        <div class="screen">0</div>
+        <div class="buttons__container">
+
+            <div class="button button--number">7</div>
+            <div class="button button--number">8</div>
+            <div class="button button--number">9</div>
+            <div class="button button--function">DEL</div>
+
+            <div class="button button--number">4</div>
+            <div class="button button--number">5</div>
+            <div class="button button--number">6</div>
+            <div class="button button--symbol">+</div>
+
+            <div class="button button--number">1</div>
+            <div class="button button--number">2</div>
+            <div class="button button--number">3</div>
+            <div class="button button--symbol">-</div>
+
+            <div class="button button--symbol">.</div>
+            <div class="button button--number">0</div>
+            <div class="button button--symbol">/</div>
+            <div class="button button--symbol">&#215;</div>
+
+            <div class="button button--function span2">RESET</div>
+            <div class="button button--result span2">=</div>
+        </div>
+    </div>
+</body>
+
+</html>
