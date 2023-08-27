@@ -67,7 +67,7 @@ One drawback of implementing a theme switcher combined with a radio input is tha
 - [CSS theme switcher using :has](https://www.youtube.com/watch?v=fyuao3G-2qg&ab_channel=KevinPowell) - This video was super helpful to understand both how `:has` selector works and how to use it to change the variables declared on the `:root` element to create a theme switcher with CSS.
 - [Frontend Masters project by Brian Holt](https://btholt.github.io/complete-intro-to-web-dev-v3/lessons/putting-it-all-together/project) - This is a great course overall, so highly recommend, and this lesson in particular was very helpful to consult with whenever I felt stuck with JS logic.
 - [Animated switch for radio buttons](https://p.bdir.in/demo/Animated-switch-for-radio-buttons-css-only/12042) - This codepen shows how to achieve smooth animation for theme toggler.
-
+- [Take input from keyboard](https://codepen.io/thecountgs/pen/JReGNR) - This codepen helped me to implement keyboard input functionality.
 
 ## Author
 
