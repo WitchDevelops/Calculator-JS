@@ -104,11 +104,33 @@ function handleSymbol(symbol) {
     }
 }
 
-//add onve event listener to all buttons
+//add one event listener to all buttons
 function runCalc() {
     document.querySelector(".buttons__container").addEventListener("click", function(event) {
         buttonClick(event.target.innerText);
-    })
+    
+
+    });
+    //allow for keyboard input
+    document.addEventListener("keydown", function(event) {
+        const key = event.key;
+    
+        // Check if the key is a valid input for the calculator
+        if (/^[0-9+\-*/.=]$/.test(key) || key === "Backspace") {
+            if (key === "=" || key === "Enter") {
+                handleSymbol("=");
+                console.log("keyboard =")
+            } else if (key === "Backspace") {
+                handleSymbol("DEL");
+            } else {
+                buttonClick(key);
+            }
+    
+            // Prevent default behavior of the key to avoid unwanted browser actions
+            event.preventDefault();
+        }
+
+    });
 }
 
 // display the current total on the calculator screen
