@@ -1,5 +1,10 @@
-// create variable for current total
+// variable to display on the screen
 let buffer = "0";
+// variable for current total
+let runningTotal = 0;
+
+let previousOperator;
+
 const screen = document.querySelector(".screen");
 
 //do this when clicking any button
@@ -10,42 +15,72 @@ function buttonClick(value) {
     } else {
         handleNumber(value);
     }
+    //update the screen
     rerender();
 }
 
-function handleNumber(number) {
-    // console.log("number");
+function handleNumber(value) {
     //if current total is 0 then replace it with a number value
     if (buffer === "0") {
-        buffer = number;
-    //but if it alraedy container a value, add a value to it
+        buffer = value;
+    //but if it alraedy contains a value, add a value to it
     } else {
-        buffer += number;
+        buffer += value;
     }
-    //console.log(buffer);
+}
+
+// function to perform math operations
+function handleMath(value) {
+    //when you start from 0 the result is 0 anyway
+    if (buffer === "0") {
+        return;
+    }
+    // this does the actual math
+    const intBuffer = parseInt(buffer);
+
+    if (runningTotal === 0) {
+        runningTotal = intBuffer;
+    } else {
+        flushOperation(intBuffer);
+    }
+    // need to remember what operator was clicked before
+    previousOperator = value;
+    buffer = "0";
+}
+
+function flushOperation(intBuffer) {
+     switch (previousOperator) {
+         case "+":
+             console.log("operator +");
+             runningTotal += intBuffer;
+             break;
+         case "-":
+             runningTotal -= intBuffer;
+             break;
+         case "/":
+             runningTotal /= intBuffer;
+             break;
+         case "×":
+             runningTotal *= intBuffer;
+             break;
+     }
 }
 
 function handleSymbol(symbol) {
-    //console.log("symbol");
     // switch all the symbol cases, as each of them will do something different
     switch (symbol) {
         case "RESET":
             buffer = "0";
-            break;
-        case "+":
-            console.log("call addition");
-            break;
-        case "-":
-            console.log("call subtraction");
+            runningTotal = 0;
             break;
         case ".":
             console.log(".");
-            break;
+            break;    
+        case "+":
+        case "-":
         case "/":
-            console.log("call division");
-            break;
         case "×":
-            console.log("call multiplication");
+            handleMath(symbol);
             break;
         case "DEL":
             console.log("delete last");
@@ -57,6 +92,14 @@ function handleSymbol(symbol) {
             break;
         case "=":
             console.log("total result");
+            if (previousOperator === undefined) {
+                return;
+            } else {
+                flushOperation(parseInt(buffer));
+                previousOperator = null;
+                buffer = runningTotal.toString();
+                runningTotal = 0;
+            }
             break;
     }
 }
