@@ -65,7 +65,7 @@ One drawback of implementing a theme switcher combined with a radio input is tha
 ### Useful resources
 
 - [CSS theme switcher using :has](https://www.youtube.com/watch?v=fyuao3G-2qg&ab_channel=KevinPowell) - This video was super helpful to understand both how `:has` selector works and how to use it to change the variables declared on the `:root` element to create a theme switcher with CSS.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Frontend Masters project by Brian Holt](https://btholt.github.io/complete-intro-to-web-dev-v3/lessons/putting-it-all-together/project) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 **Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
