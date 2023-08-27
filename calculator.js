@@ -117,19 +117,20 @@ function runCalc() {
     
         // Check if the key is a valid input for the calculator
         if (/^[0-9+\-*/.=]$/.test(key) || key === "Backspace") {
-            if (key === "=" || key === "Enter") {
-                handleSymbol("=");
-                console.log("keyboard =")
-            } else if (key === "Backspace") {
+            if (key === "Backspace") {
                 handleSymbol("DEL");
+                rerender();
             } else {
                 buttonClick(key);
+                if (key === "=" || key === "Enter") {
+                    handleSymbol("=");
+                }
+                
             }
     
             // Prevent default behavior of the key to avoid unwanted browser actions
             event.preventDefault();
         }
-
     });
 }
 
