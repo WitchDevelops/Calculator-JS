@@ -30,6 +30,8 @@ button {
 }
 
 /* variables */
+/* theme switcher using :has() with a class fallback to set a class on HTML */
+.dark-mode,
 :root:has(#theme1:checked) {
   --color-bg-100: #181F33;
   --color-bg-200: #3A4663;
@@ -49,6 +51,7 @@ button {
   --txt--btns-res: #FFF;
 }
 
+.light-mode,
 :root:has(#theme2:checked) {
   --color-bg-100: #eee;
   --color-bg-200: #e6e6e6;
@@ -68,6 +71,7 @@ button {
   --txt--btns-res: #FFF;
 }
 
+.high-contrast-mode,
 :root:has(#theme3:checked) {
   --color-bg-100: #1E0936;
   --color-bg-200: #17062A;
@@ -89,6 +93,7 @@ button {
 
 /* use correct theme based on user preferences */
 @media (prefers-color-scheme: dark) {
+  .dark-mode,
   :root {
     --color-bg-100: #181F33;
     --color-bg-200: #3A4663;
@@ -110,6 +115,7 @@ button {
 }
 
 @media (prefers-color-scheme: light) {
+  .light-mode,
   :root {
     --color-bg-100: #eee;
   --color-bg-200: #e6e6e6;
@@ -131,6 +137,7 @@ button {
 }
 
 @media (prefers-color-scheme: high-contrast) {
+  .high-contrast-mode,
   :root {
     --color-bg-100: #1E0936;
     --color-bg-200: #17062A;
