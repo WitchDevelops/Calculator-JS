@@ -36,9 +36,11 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [live](https://witchdevelops.github.io/Calculator-JS/)
 
 ## My process
+
+I consult MDN docs and W3Schools docs a lot and I also use chatGPT to help with debugging.
 
 ### Built with
 
