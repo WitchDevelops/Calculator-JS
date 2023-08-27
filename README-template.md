@@ -65,9 +65,9 @@ One drawback of implementing a theme switcher combined with a radio input is tha
 ### Useful resources
 
 - [CSS theme switcher using :has](https://www.youtube.com/watch?v=fyuao3G-2qg&ab_channel=KevinPowell) - This video was super helpful to understand both how `:has` selector works and how to use it to change the variables declared on the `:root` element to create a theme switcher with CSS.
-- [Frontend Masters project by Brian Holt](https://btholt.github.io/complete-intro-to-web-dev-v3/lessons/putting-it-all-together/project) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Frontend Masters project by Brian Holt](https://btholt.github.io/complete-intro-to-web-dev-v3/lessons/putting-it-all-together/project) - This is a great course overall, so highly recommend, and this lesson in particular was very helpful to consult with whenever I felt stuck with JS logic.
+- [Animated switch for radio buttons](https://p.bdir.in/demo/Animated-switch-for-radio-buttons-css-only/12042) - This codepen shows how to achieve smooth animation for theme toggler.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
@@ -75,7 +75,6 @@ One drawback of implementing a theme switcher combined with a radio input is tha
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
 ## Acknowledgments
 
