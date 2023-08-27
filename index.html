@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="./calculator.js" defer></script>
+    <script src="./detectTheme.js" defer></script>
 </head>
 
 <body>
@@ -36,15 +37,20 @@
                             type="radio" 
                             name="theme" 
                             id="theme1"
+                            value="dark"
                             >
 
                         <label 
                             class="visually-hidden" 
                             for="theme2"
-                            checked>
+                            >
                             theme 2
                         </label>
-                        <input type="radio" name="theme" id="theme2">
+                        <input 
+                            type="radio" 
+                            name="theme" 
+                            id="theme2" 
+                            value="light">
 
                         <label 
                             class="visually-hidden"    
@@ -54,7 +60,8 @@
                         <input 
                             type="radio" 
                             name="theme" 
-                            id="theme3">
+                            id="theme3"
+                            value="high-contrast">
                     </fieldset>
                 </form>
                     <!-- <div class="switcher__toggler--button">
