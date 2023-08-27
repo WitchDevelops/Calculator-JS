@@ -179,6 +179,13 @@ body {
   font-family: "League Spartan", sans-serif;
 }
 
+.app {
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .header {
   display: flex;
   align-items: baseline;
@@ -335,6 +342,7 @@ body {
 @media (min-width: 1440px) {
   .app {
     width: 540px;
+    max-width: unset;
     /* height: 480px; */
   }
   .logo {
