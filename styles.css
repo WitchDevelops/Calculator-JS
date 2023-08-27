@@ -19,31 +19,22 @@ svg {
   max-width: 100%;
 }
 
-/* variables */
-:root:has(#theme2:checked) {
-  --color-bg-100: #eee;
---color-bg-200: #e6e6e6;
---color-bg-300: #e5e4e1;
---color-bg-500: #d2cdcd;
---color-btn-body-no: #E5E4E1;
---color-btn-body--active: #FFF;
---color-btn-shadow-no: #a79e91;
---color-accent-1: #378187;
---color-accent-1--active: #62b5bc;
---color-btn-shadow-fc: #1b6066;
---color-accent-2: #c85402;
---color-accent-2--active: #ff8a38;
---color-btn-shadow-res: #873901;
---txt--main: #36362C;
---txt--btns-no: #36362C;
---txt--btns-fc: #FFF;
---txt--btns-res: #FFF;
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: unset;
 }
 
+/* variables */
+/* theme switcher using :has() with a class fallback to set a class on HTML */
+.dark-mode,
 :root:has(#theme1:checked) {
   --color-bg-100: #181F33;
   --color-bg-200: #3A4663;
-  --color-bg-300: #EAE3DC; /* ? */
   --color-bg-500: #242D44;
   --color-btn-body-no: #EAE3DC;
   --color-btn-body--active: #FFFFFE;
@@ -60,10 +51,30 @@ svg {
   --txt--btns-res: #FFF;
 }
 
+.light-mode,
+:root:has(#theme2:checked) {
+  --color-bg-100: #eee;
+  --color-bg-200: #e6e6e6;
+  --color-bg-500: #d2cdcd;
+  --color-btn-body-no: #E5E4E1;
+  --color-btn-body--active: #FFF;
+  --color-btn-shadow-no: #a79e91;
+  --color-accent-1: #378187;
+  --color-accent-1--active: #62b5bc;
+  --color-btn-shadow-fc: #1b6066;
+  --color-accent-2: #c85402;
+  --color-accent-2--active: #ff8a38;
+  --color-btn-shadow-res: #873901;
+  --txt--main: #36362C;
+  --txt--btns-no: #36362C;
+  --txt--btns-fc: #FFF;
+  --txt--btns-res: #FFF;
+}
+
+.high-contrast-mode,
 :root:has(#theme3:checked) {
   --color-bg-100: #1E0936;
   --color-bg-200: #17062A;
-  --color-bg-300:  #331C4D;
   --color-bg-500: #1E0936;
   --color-btn-body-no: #331C4D;
   --color-btn-body--active: #6C34AC;
@@ -78,6 +89,73 @@ svg {
   --txt--btns-no: #FFE53D;
   --txt--btns-fc: #FFF;
   --txt--btns-res: #1A2327;
+}
+
+/* use correct theme based on user preferences */
+@media (prefers-color-scheme: dark) {
+  .dark-mode,
+  :root {
+    --color-bg-100: #181F33;
+    --color-bg-200: #3A4663;
+    --color-bg-500: #242D44;
+    --color-btn-body-no: #EAE3DC;
+    --color-btn-body--active: #FFFFFE;
+    --color-btn-shadow-no: #B3A497;
+    --color-accent-1: #647198;
+    --color-accent-1--active: #A2B2E1;
+    --color-btn-shadow-fc: #414E73;
+    --color-accent-2: #D03F2F;
+    --color-accent-2--active: #F96B5B;
+    --color-btn-shadow-res: #93261A;
+    --txt--main: #FFF;
+    --txt--btns-no: #434A59;
+    --txt--btns-fc: #FFF;
+    --txt--btns-res: #FFF;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .light-mode,
+  :root {
+    --color-bg-100: #eee;
+  --color-bg-200: #e6e6e6;
+  --color-bg-500: #d2cdcd;
+  --color-btn-body-no: #E5E4E1;
+  --color-btn-body--active: #FFF;
+  --color-btn-shadow-no: #a79e91;
+  --color-accent-1: #378187;
+  --color-accent-1--active: #62b5bc;
+  --color-btn-shadow-fc: #1b6066;
+  --color-accent-2: #c85402;
+  --color-accent-2--active: #ff8a38;
+  --color-btn-shadow-res: #873901;
+  --txt--main: #36362C;
+  --txt--btns-no: #36362C;
+  --txt--btns-fc: #FFF;
+  --txt--btns-res: #FFF;
+  }
+}
+
+@media (prefers-color-scheme: high-contrast) {
+  .high-contrast-mode,
+  :root {
+    --color-bg-100: #1E0936;
+    --color-bg-200: #17062A;
+    --color-bg-500: #1E0936;
+    --color-btn-body-no: #331C4D;
+    --color-btn-body--active: #6C34AC;
+    --color-btn-shadow-no: #881C9E;
+    --color-accent-1: #56077C;
+    --color-accent-1--active: #8631AF;
+    --color-btn-shadow-fc: #BE15F4;
+    --color-accent-2: #00DED0;
+    --color-accent-2--active: #93FFF8;
+    --color-btn-shadow-res: #6CF9F1;
+    --txt--main: #FFE53D;
+    --txt--btns-no: #FFE53D;
+    --txt--btns-fc: #FFF;
+    --txt--btns-res: #1A2327;
+  }
 }
 
 /* utility classes */
@@ -99,6 +177,13 @@ body {
   background-color: var(--color-bg-200);
   height: 100vh;
   font-family: "League Spartan", sans-serif;
+}
+
+.app {
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header {
@@ -257,6 +342,7 @@ body {
 @media (min-width: 1440px) {
   .app {
     width: 540px;
+    max-width: unset;
     /* height: 480px; */
   }
   .logo {

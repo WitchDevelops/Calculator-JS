@@ -8,7 +8,7 @@ let previousOperator;
 const screen = document.querySelector(".screen");
 
 //do this when clicking any button
-function buttonClick(value) {
+const buttonClick = (value) => {
     //check if the button is a number or not
     if (isNaN(parseInt(value))) {
         handleSymbol(value);
@@ -19,7 +19,7 @@ function buttonClick(value) {
     rerender();
 }
 
-function handleNumber(value) {
+const handleNumber = (value) => {
     //if current total is 0 then replace it with a number value
     if (buffer === "0") {
         buffer = value;
@@ -30,7 +30,7 @@ function handleNumber(value) {
 }
 
 // function to perform math operations
-function handleMath(value) {
+const handleMath = (value) => {
     //when you start from 0 the result is 0 anyway
     if (buffer === "0") {
         return;
@@ -48,10 +48,9 @@ function handleMath(value) {
     buffer = "0";
 }
 
-function flushOperation(intBuffer) {
+const flushOperation = (intBuffer) => {
      switch (previousOperator) {
          case "+":
-             console.log("operator +");
              runningTotal += intBuffer;
              break;
          case "-":
@@ -66,7 +65,7 @@ function flushOperation(intBuffer) {
      }
 }
 
-function handleSymbol(symbol) {
+const handleSymbol = (symbol) => {
     // switch all the symbol cases, as each of them will do something different
     switch (symbol) {
         case "RESET":
@@ -83,7 +82,6 @@ function handleSymbol(symbol) {
             handleMath(symbol);
             break;
         case "DEL":
-            console.log("delete last");
             if (buffer.length === 1) {
                 buffer = "0";
             } else {
@@ -91,7 +89,6 @@ function handleSymbol(symbol) {
             }
             break;
         case "=":
-            console.log("total result");
             if (previousOperator === undefined) {
                 return;
             } else {
@@ -104,15 +101,38 @@ function handleSymbol(symbol) {
     }
 }
 
-//add onve event listener to all buttons
-function runCalc() {
+//add one event listener to all buttons
+const runCalc = () => {
     document.querySelector(".buttons__container").addEventListener("click", function(event) {
         buttonClick(event.target.innerText);
-    })
+    
+
+    });
+    //allow for keyboard input
+    document.addEventListener("keydown", function(event) {
+        const key = event.key;
+    
+        // Check if the key is a valid input for the calculator
+        if (/^[0-9+\-*/.=]$/.test(key) || key === "Backspace") {
+            if (key === "Backspace") {
+                handleSymbol("DEL");
+                rerender();
+            } else {
+                buttonClick(key);
+                if (key === "=" || key === "Enter") {
+                    handleSymbol("=");
+                }
+                
+            }
+    
+            // Prevent default behavior of the key to avoid unwanted browser actions
+            event.preventDefault();
+        }
+    });
 }
 
 // display the current total on the calculator screen
-function rerender() {
+const rerender = () => {
     screen.innerText = buffer;
 }
 
