@@ -107,10 +107,12 @@ const handleSymbol = (symbol) => {
 
 //add one event listener to all buttons
 const runCalc = () => {
-    document.querySelector(".buttons__container").addEventListener("click", function(event) {
-        buttonClick(event.target.innerText);
-    
+    const buttons = document.querySelectorAll(".button");
 
+    buttons.forEach(button => {
+        button.addEventListener("click", function(event) {
+            buttonClick(event.target.innerText);
+        });
     });
     //allow for keyboard input
     document.addEventListener("keydown", function(event) {
