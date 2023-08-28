@@ -62,6 +62,9 @@ const flushOperation = (intBuffer) => {
          case "×":
              runningTotal *= intBuffer;
              break;
+        case "*":
+            runningTotal *= intBuffer;
+            break;
      }
 }
 
@@ -79,6 +82,7 @@ const handleSymbol = (symbol) => {
         case "-":
         case "/":
         case "×":
+        case "*":
             handleMath(symbol);
             break;
         case "DEL":
@@ -113,16 +117,15 @@ const runCalc = () => {
         const key = event.key;
     
         // Check if the key is a valid input for the calculator
-        if (/^[0-9+\-*/.=]$/.test(key) || key === "Backspace") {
+        if (/^[0-9+\-/\*\.=]$/.test(key) || key === "Backspace" || key === "Enter") {
             if (key === "Backspace") {
                 handleSymbol("DEL");
                 rerender();
+            } else if (key === "=" || key === "Enter") {
+                buttonClick("=");
+                handleSymbol("=");
             } else {
                 buttonClick(key);
-                if (key === "=" || key === "Enter") {
-                    handleSymbol("=");
-                }
-                
             }
     
             // Prevent default behavior of the key to avoid unwanted browser actions
