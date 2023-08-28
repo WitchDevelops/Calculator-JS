@@ -30,7 +30,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![image](https://github.com/WitchDevelops/Calculator-JS/assets/112077394/91ddc1c0-e2e5-4790-a297-f7f24d3f538b)
+![image](https://github.com/WitchDevelops/Calculator-JS/assets/112077394/1b3b804d-e9bb-4707-9a76-3048ca5102ba)
+![image](https://github.com/WitchDevelops/Calculator-JS/assets/112077394/c0f39174-a38b-45cb-8752-08d1aaa78f97)
+
+
+
 
 
 ### Links
