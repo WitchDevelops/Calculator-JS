@@ -75,6 +75,7 @@ One drawback of implementing a theme switcher combined with a radio input is tha
 - [Frontend Masters project by Brian Holt](https://btholt.github.io/complete-intro-to-web-dev-v3/lessons/putting-it-all-together/project) - This is a great course overall, so highly recommend, and this lesson in particular was very helpful to consult with whenever I felt stuck with JS logic.
 - [Animated switch for radio buttons](https://p.bdir.in/demo/Animated-switch-for-radio-buttons-css-only/12042) - This codepen shows how to achieve smooth animation for theme toggler.
 - [Take input from keyboard](https://codepen.io/thecountgs/pen/JReGNR) - This codepen helped me to implement keyboard input functionality.
+- [Regex 101](https://regex101.com/) - This resource is very handy when working with regexes. It allows test a string against regex and debug it. It also comes with an inbuild quick reference for a refresher.
 
 ## Author
 
