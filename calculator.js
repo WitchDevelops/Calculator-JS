@@ -4,13 +4,16 @@ let buffer = "0";
 let runningTotal = 0;
 
 let previousOperator;
+let decimalEntered = false;
 
 const screen = document.querySelector(".screen");
 
 //do this when clicking any button
 const buttonClick = (value) => {
     //check if the button is a number or not
-    if (isNaN(parseInt(value))) {
+    if (value === ".") {
+        handleSymbol(value);
+    } else if (isNaN(parseInt(value))) {
         handleSymbol(value);
     } else {
         handleNumber(value);
@@ -36,16 +39,17 @@ const handleMath = (value) => {
         return;
     }
     // this does the actual math
-    const intBuffer = parseInt(buffer);
+    //const intBuffer = parseInt(buffer);
 
     if (runningTotal === 0) {
-        runningTotal = intBuffer;
+        runningTotal = parseFloat(buffer);
     } else {
-        flushOperation(intBuffer);
+        flushOperation(parseFloat(buffer));
     }
     // need to remember what operator was clicked before
     previousOperator = value;
     buffer = "0";
+    decimalEntered = false; // Reset decimal tracking
 }
 
 const flushOperation = (intBuffer) => {
@@ -74,9 +78,14 @@ const handleSymbol = (symbol) => {
         case "RESET":
             buffer = "0";
             runningTotal = 0;
+            decimalEntered = false; // Reset the flag for decimal point
             break;
         case ".":
-            console.log(".");
+        case ",":
+            if (!decimalEntered) {
+                buffer += ".";
+                decimalEntered = true;
+            }
             break;    
         case "+":
         case "-":
@@ -96,10 +105,11 @@ const handleSymbol = (symbol) => {
             if (previousOperator === undefined) {
                 return;
             } else {
-                flushOperation(parseInt(buffer));
+                flushOperation(parseFloat(buffer));
                 previousOperator = null;
                 buffer = runningTotal.toString();
                 runningTotal = 0;
+                decimalEntered = false; // Reset the flag for decimal point
             }
             break;
     }
@@ -119,7 +129,7 @@ const runCalc = () => {
         const key = event.key;
     
         // Check if the key is a valid input for the calculator
-        if (/^[0-9+\-/\*\.=]$/.test(key) || key === "Backspace" || key === "Enter") {
+        if (/^[0-9+\-/\*\.,=]$/.test(key) || key === "Backspace" || key === "Enter") {
             if (key === "Backspace") {
                 handleSymbol("DEL");
                 rerender();
