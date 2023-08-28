@@ -24,9 +24,11 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 Users should be able to:
 
 - See the size of the elements adjust based on their device's screen size
-- Perform mathmatical operations like addition, subtraction, multiplication, and division
+- Perform mathematical operations like addition, subtraction, multiplication, and division
+- Also on decimal numbers
+- Use either screen or keyboard
 - Adjust the color theme based on their preference
-- **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
+- Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
 
 ### Screenshot
 
@@ -40,12 +42,12 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Solution hub](https://www.frontendmentor.io/solutions/calculator-with-theme-switch-and-keyboard-input-UNkkVlMQfw)
 - Live Site URL: [live](https://witchdevelops.github.io/Calculator-JS/)
 
 ## My process
 
-I consult MDN docs and W3Schools docs a lot and I also use chatGPT to help with debugging.
+I consult MDN docs and W3Schools docs a lot and I also use chatGPT to help with debugging. It's really good at detecting typos and double checking variable and function names.
 
 ### Built with
 
@@ -55,6 +57,7 @@ I consult MDN docs and W3Schools docs a lot and I also use chatGPT to help with 
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- :has() and radio input for theme switcher
 
 ### What I learned
 
@@ -64,10 +67,12 @@ I learned how to implement a theme switcher. It is surprisingly easy! All you ne
   --variable_name: #color;
 }
 ```
+As `:has()` [isn't currently supported in Mozilla Firefox](https://caniuse.com/css-has), I added a fallback with a class assigned with JavaScript.
 
 ### Continued development
 
 One drawback of implementing a theme switcher combined with a radio input is that I couldn't make it work using SASS. This is probably because SASS declares variables without using the `:root` selector. Using `@at-root` didn't compile. I have yet to figure out a solution to implementing a theme switcher while having styles written in SASS.
+Similarly, detecting user preference regarding color scheme and assigning a class with JavaScript for the theme switcher clashes, so in Mozilla the switcher doesn't work with manual input. I have yet to figure it out.
 
 ### Useful resources
 
@@ -80,12 +85,5 @@ One drawback of implementing a theme switcher combined with a radio input is tha
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@WitchDevelops](https://www.frontendmentor.io/profile/WitchDevelops)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
